@@ -1,0 +1,44 @@
+@use './variaveis';
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+// Body
+
+body {
+    margin: 0;
+}
+
+// Header
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: variaveis.$background-color-header;
+    height: 5em;
+    gap: 20px;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: variaveis.$font-paragrafo2-size;
+    color: variaveis.$text-color2;
+    font-family: variaveis.$font-paragrafo;
+    padding: 30px 0 20px 40px;
+}
+
+.menu {
+    display: flex;
+    align-items: end;
+    text-decoration: none;
+    color: variaveis.$text-color2;
+}
+
+.menu-hamburguer nav ul li{
+    display: flex;
+    flex-direction: column;
+    margin-right: 8rem;
+    display: none;
+    
+    list-style: none;
+    color: variaveis.$text-color2;
+}
