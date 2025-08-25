@@ -8,12 +8,17 @@ body {
     margin: 0;
 }
 
+.landing {
+    background-image: url(../imgs/fundo-landing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 // Header
 
 .header {
     display: flex;
     justify-content: space-between;
-    background-color: variaveis.$background-color-header;
     height: 5em;
     gap: 20px;
 }
@@ -22,9 +27,9 @@ body {
     text-decoration: none;
     align-items: center;
     font-size: variaveis.$font-paragrafo2-size;
-    color: variaveis.$text-color2;
+    color: variaveis.$text-color1;
     font-family: variaveis.$font-paragrafo;
-    padding: 25px 0 20px 40px;
+    padding: 2em 0 0 5em;
 }
 
 .menu {
@@ -32,86 +37,77 @@ body {
     justify-content: space-between;
     flex-direction: row;
     text-decoration: none;
+
     color: variaveis.$text-color2;
 }
 
 .menu nav ul{
     display: flex;
     align-items: center;
-    margin-right: 8rem;
-    padding: 10px 0 20px 40px;
+    margin-right: 5rem;
+    padding: 1em 0 0 5em;
     
     font-family: variaveis.$font-paragrafo;
     list-style: none;
-    color: variaveis.$text-color2;
     gap: 20px;
 }
 
 .menu nav a {
     text-decoration: none;
-    color: variaveis.$text-color2;
+    color: variaveis.$text-color1;
 }
 
 .menu nav a li:hover {
     width: 100%;
-    border-bottom: 1px solid variaveis.$text-color2;
+    border-bottom: 1px solid variaveis.$text-color1;
     transition: 2s ease-in;
 }
 
 // Main 
 
 main {
-    background-color: variaveis.$background-color4;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 5em);
-    padding: 0 40px;
 }
 
 .main-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    width: 100%;
-    max-width: 1200px;
+    margin-top: -2em;
 }
 
 .title {
     display: flex;
+    justify-content: center;
+    text-align: center;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .title h3 {
-    margin: 5em 0 0.5em 5em;
-    color: variaveis.$text-color1;
+    color: variaveis.$text-color4;
     font-family: variaveis.$font-paragrafo;
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 4.5rem;
+    text-shadow:  1px 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 .nome_main {
     display: flex;
     flex-direction: column;
-    
-    color: variaveis.$text-color1;
 }
 
-.nome_main h1 {
-    margin: 0 0 0 1.2em;
-    color: variaveis.$text-color1;
-    font-size: 4.5em; 
-    line-height: 1.1; 
+.nome_main button {
+    border: 1px solid variaveis.$text-color3;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 1em;
+
+    color: variaveis.$text-color3;
     font-family: variaveis.$font-paragrafo; 
-}
-
-.img_eu {
-    display: flex;
-    margin-left: auto;
-    height: auto;
-    margin-top: -20em;
-    margin-left: 43em;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 // Sobre mim 
