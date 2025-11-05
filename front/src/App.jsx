@@ -3,13 +3,47 @@ import './SASS/main.scss'
 import Eu from './assets/ft-eu.png'
 import AgroTech from './assets/agrotech.png'
 import Otis from './assets/otis.png'
+import emailjs from '@emailjs/browser'
+import BtnSubir from './Components/BtnSubir'
 
 function App() {
   const [ animado, setAnimado ] = useState(false);
 
+  // Formulário
+  const [ nome, setNome ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ mensagem, setMensagem ] = useState('');
+
   useEffect(() => {
     setTimeout(() => setAnimado(true), 500);
   }, []);
+
+  function enviarMensagem (e) {
+    e.preventDefault();
+
+    if ( nome === "" || email === "" || mensagem === "") {
+      alert("Preencha todos os campos!");
+      return;
+    }
+    
+    const templateParams = {
+      from_name: nome,
+      message: mensagem,
+      email: email
+    }
+
+    emailjs.send("service_6gt3u04", "template_hapboin", templateParams, "8DPK2mb1MOWPqVfdG")
+    .then((response) => {
+      console.log("Email enviado", response.status, response.text)
+
+      setNome('');
+      setEmail('');
+      setMensagem('');
+
+    }, (err) => {
+      console.log("ERRO", err)
+    })
+  }
 
   return (
     <>
@@ -17,9 +51,9 @@ function App() {
       <h4 className='logo'>Ana Clara Maciel</h4>
       <nav>
         <ul className='nav'>
-          <a href='#skills'>Skills</a>
+          <a href='#ferramentas'>Skills</a>
           <a href='#projetos'>Projetos</a>
-          <a href='#contato' id='contato'>Contato</a>
+          <a href='#contato-secao' id='contato'>Contato</a>
         </ul>
       </nav>
      </header>
@@ -31,7 +65,7 @@ function App() {
         <p>Sou desenvolvedora Front-end apaixonada por transformar ideias em interfaces funcionais, intuitivas e agradáveis. Tenho experiência com tecnologias como HTML, CSS, JavaScript e React, e gosto de unir design e código para criar experiências digitais que realmente façam sentido para o usuário.</p>
 
         <div className="botoes">
-          <button id='meusProjetos'>Meus Projetos</button>
+          <button id='meusProjetos'><a href='#contato-secao'>Meus Projetos</a></button>
         </div>
       </div>
 
@@ -40,7 +74,7 @@ function App() {
         </div>
      </main>
 
-     <section className='ferramentas'>
+     <section className='ferramentas' id="ferramentas">
       <div className="ferramentas_introducao">
         <h3>Minhas Ferramentas e Tecnologia</h3>
         <p>O arsenal que uso para construir experiências digitais incríveis.</p>
@@ -141,7 +175,7 @@ function App() {
       </div>
      </section>
 
-     <section className='projetos'>
+     <section className='projetos' id="projetos">
       <div className="titulo-proj">
         <h3>Projetos em Destaque</h3>
         <p>Uma seleção de trabalhos que demonstram minha paixão e habilidade</p>
@@ -206,32 +240,54 @@ function App() {
       </div>
      </section>
 
-     <section className='contato'>
+     <section className='contato' id="contato-secao">
         <div className="conteudo-ctt">
           <h2>Vamos Conversar</h2>
           <p>Tem um projeto em mente ou quer se conectar? Me envie uma mensagem!</p>
 
-          <form className='forms'>
+          <form className='forms' onSubmit={enviarMensagem}>
             <label>Nome</label>
-            <input type="text" name='email'/>
-
+            <input 
+            type="text" 
+            name='email'
+            onChange={(e) => setNome(e.target.value)}
+            value={nome}
+            />
             <label>Email</label>
-            <input type="email" name='email'/>
+            <input 
+            type="email" 
+            name='email'
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            />
 
             <label>Mensagem</label>
-            <textarea name="mensagem" id="msg"></textarea>
+            <textarea 
+            name="mensagem" 
+            id="msg"
+            onChange={(e) => setMensagem(e.target.value)}
+            value={mensagem}
+            />
 
             <div className="botao">
-              <button className='btn-enviar' type='submit'>Enviar Mensagem</button>
+              <button 
+              className='btn-enviar' 
+              type='submit'
+              value="enviar"
+              >Enviar Mensagem</button>
             </div>
 
             <div className="redes">
-              <i className="fa-brands fa-github icon"></i>
-              <i class="fa-brands fa-linkedin icon"></i>
+              <a href='https://github.com/maciel-ana?tab=repositories' target='_blank'><i className="fa-brands fa-github icon"></i></a>
+              <a href='https://www.linkedin.com/in/anamaciel0604/' target='_blank'><i className="fa-brands fa-linkedin icon"></i></a>
             </div>
           </form>
         </div>
      </section>
+     <BtnSubir />
+     <div className="criadorPor">
+      <p> &copy; 2025 Ana Clara Maciel. Todos os direitos reservados</p>
+     </div>
     </>
   )
 }

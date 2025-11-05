@@ -7,6 +7,10 @@
     font-family: $font;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: $background-color;
 }
@@ -110,9 +114,13 @@ main {
         border: none;
         border-radius: 20px;
         padding: 10px 20px;
-        color: #fff;
         font-weight: 600;
         cursor: pointer;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #fff;
     }
 }
 
@@ -363,7 +371,146 @@ main {
 
 // Contato
 
+.contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 20px;
+    margin: 10rem;
+}
 
+.conteudo-ctt {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    padding: 3rem;
+
+    h2 {
+        text-align: center;
+        color: #fff;
+        font-weight: 500;
+        font-size: 2rem;
+        padding-bottom: 1em;
+    }
+
+    p {
+        color: #e8edf5;
+    }
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+
+    label {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 300;
+        padding-bottom: 1em;
+    }
+
+    input {
+        border: 1px solid #cecece;
+        border-radius: 20px;
+        background-color: transparent;
+        padding: 10px;
+        margin-bottom: 2em;
+    }
+
+    textarea {
+        background-color: transparent;
+        border: 1px solid #cecece;
+        border-radius: 10px;
+        padding: 3em;
+    }
+
+    .botao {
+        display: flex;
+        justify-content: center;
+        margin-top: 4em;
+
+        .btn-enviar {
+            padding: 1em;
+            width: 100%;
+            border: none;
+            border-radius: 20px;
+            color: $color1;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 3em;
+        }
+    }
+
+    .redes {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        i {
+            color: #e8edf5;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+}
+
+.criadorPor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5em;
+    p {
+        color: #878C97;
+    }
+}
+
+.botao-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+
+    .back-to-top-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1000; 
+
+        background-color: $color1; 
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; 
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        opacity: 0; 
+        visibility: hidden; 
+        transform: translateY(20px); 
+        transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+
+        &.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0); 
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
 
 
 // Responsividade
